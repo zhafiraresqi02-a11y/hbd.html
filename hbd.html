@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Happy Birthday 🎂</title>
+
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      min-height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      overflow: hidden;
+      font-family: 'Segoe UI', sans-serif;
+      color: white;
+      background: linear-gradient(135deg, #160b35, #54206e, #b33c78);
+    }
+
+    .container {
+      position: relative;
+      z-index: 2;
+      width: 90%;
+      max-width: 430px;
+      padding: 35px 25px;
+      text-align: center;
+      border: 1px solid rgba(255,255,255,0.25);
+      border-radius: 25px;
+      background: rgba(255,255,255,0.10);
+      backdrop-filter: blur(12px);
+      box-shadow: 0 0 40px rgba(255, 105, 180, 0.2);
+      animation: muncul 1.2s ease;
+    }
+
+    h1 {
+      font-size: 2.2rem;
+      color: #ffb6e6;
+      text-shadow: 0 0 15px #ff69b4;
+      margin-bottom: 12px;
+    }
+
+    .subtitle {
+      font-size: 1rem;
+      line-height: 1.7;
+      margin-bottom: 20px;
+    }
+
+    .cake {
+      font-size: 95px;
+      margin: 15px 0;
+      animation: goyang 2s infinite ease-in-out;
+      filter: drop-shadow(0 0 15px #ff8bd1);
+    }
+
+    .name {
+      color: #ffe29a;
+      font-size: 1.7rem;
+      margin-bottom: 12px;
+    }
+
+    button {
+      margin-top: 20px;
+      padding: 13px 25px;
+      border: none;
+      border-radius: 30px;
+      background: linear-gradient(45deg, #ff69b4, #ff9a8b);
+      color: white;
+      font-size: 1rem;
+      font-weight: bold;
+      cursor: pointer;
+      box-shadow: 0 5px 20px rgba(255,105,180,0.4);
+      transition: 0.3s;
+    }
+
+    button:hover {
+      transform: scale(1.08);
+      box-shadow: 0 0 25px #ff69b4;
+    }
+
+    #pesan {
+      display: none;
+      margin-top: 22px;
+      line-height: 1.8;
+      color: #fff0fa;
+      animation: muncul 1s ease;
+    }
+
+    .balloon {
+      position: absolute;
+      bottom: -150px;
+      width: 55px;
+      height: 70px;
+      border-radius: 50%;
+      animation: terbang 10s linear infinite;
+      opacity: 0.8;
+    }
+
+    .balloon::after {
+      content: "";
+      position: absolute;
+      bottom: -35px;
+      left: 50%;
+      width: 1px;
+      height: 35px;
+      background: rgba(255,255,255,0.6);
+    }
+
+    .b1 {
+      left: 8%;
+      background: #ff75bc;
+      animation-delay: 0s;
+    }
+
+    .b2 {
+      left: 80%;
+      background: #ffd166;
+      animation-delay: 3s;
+    }
+
+    .b3 {
+      left: 45%;
+      background: #8be9fd;
+      animation-delay: 6s;
+    }
+
+    .b4 {
+      left: 65%;
+      background: #c8a2ff;
+      animation-delay: 1.5s;
+    }
+
+    .sparkle {
+      position: absolute;
+      color: #ffe29a;
+      font-size: 24px;
+      animation: kelapkelip 2s infinite alternate;
+    }
+
+    .s1 { top: 8%; left: 10%; }
+    .s2 { top: 15%; right: 10%; }
+    .s3 { bottom: 12%; left: 15%; }
+    .s4 { bottom: 10%; right: 12%; }
+
+    .confetti {
+      position: fixed;
+      top: -20px;
+      width: 9px;
+      height: 14px;
+      pointer-events: none;
+      animation: jatuh 4s linear forwards;
+      z-index: 5;
+    }
+
+    @keyframes terbang {
+      0% { transform: translateY(0) rotate(0); }
+      100% { transform: translateY(-125vh) rotate(25deg); }
+    }
+
+    @keyframes goyang {
+      0%, 100% { transform: rotate(-5deg) translateY(0); }
+      50% { transform: rotate(5deg) translateY(-10px); }
+    }
+
+    @keyframes kelapkelip {
+      from { opacity: 0.3; transform: scale(0.8); }
+      to { opacity: 1; transform: scale(1.3); }
+    }
+
+    @keyframes muncul {
+      from { opacity: 0; transform: translateY(25px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    @keyframes jatuh {
+      to {
+        transform: translateY(110vh) rotate(720deg);
+        opacity: 0;
+      }
+    }
+
+    @media (max-width: 400px) {
+      h1 { font-size: 1.8rem; }
+      .container { padding: 28px 18px; }
+      .cake { font-size: 75px; }
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Balon animasi -->
+  <div class="balloon b1"></div>
+  <div class="balloon b2"></div>
+  <div class="balloon b3"></div>
+  <div class="balloon b4"></div>
+
+  <!-- Hiasan bintang -->
+  <div class="sparkle s1">✦</div>
+  <div class="sparkle s2">✧</div>
+  <div class="sparkle s3">✦</div>
+  <div class="sparkle s4">✧</div>
+
+  <main class="container">
+    <h1>Happy Birthday!</h1>
+
+    <p class="subtitle">
+      Celebrating another year of you. ✨<br>
+      May this year bring you more good things
+    </p>
+
+    <div class="cake">🎂</div>
+
+    <!-- Ganti nama di bawah ini -->
+    <h2 class="name">Untuk Kamu ❤️</h2>
+
+    <p class="subtitle">
+      Semoga hari ini penuh senyuman,
+      cinta, dan kebahagiaan.
+    </p>
+
+    <button onclick="bukaPesan()">
+      🎁 Buka Kejutan
+    </button>
+
+    <div id="pesan">
+      <h2>💖 All the best for your new chapter 💖</h2>
+      <p>
+        Selamat ulang tahun Novita Dwi Aulia Putri! 🥳<br>
+        Semoga panjang umur, sehat selalu,
+        dilancarkan segala urusannya,
+        dimudahkan rezekinya, dan semua
+        impianmu satu per satu menjadi nyata.
+        <br><br>
+        Jangan pernah berhenti tersenyum
+        dan jadilah bahagia dengan caramu sendiri.
+        <br><br>
+        <strong>You're special. Never forget that! 🌷</strong>
+      </p>
+    </div>
+  </main>
+
+  <script>
+    function bukaPesan() {
+      const pesan = document.getElementById("pesan");
+
+      pesan.style.display = "block";
+
+      // Ganti teks tombol setelah diklik
+      document.querySelector("button").textContent =
+        "💗 Happy Birthday!";
+
+      // Membuat confetti
+      for (let i = 0; i < 100; i++) {
+        buatConfetti();
+      }
+    }
+
+    function buatConfetti() {
+      const confetti = document.createElement("div");
+      confetti.classList.add("confetti");
+
+      const warna = [
+        "#ff69b4",
+        "#ffd166",
+        "#8be9fd",
+        "#c8a2ff",
+        "#ffffff",
+        "#ff8a65"
+      ];
+
+      confetti.style.left = Math.random() * 100 + "vw";
+      confetti.style.backgroundColor =
+        warna[Math.floor(Math.random() * warna.length)];
+
+      confetti.style.animationDuration =
+        (Math.random() * 3 + 2) + "s";
+
+      confetti.style.animationDelay =
+        Math.random() * 1.5 + "s";
+
+      document.body.appendChild(confetti);
+
+      setTimeout(() => {
+        confetti.remove();
+      }, 6500);
+    }
+  </script>
+
+</body>
+</html>
